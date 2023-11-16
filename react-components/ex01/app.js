@@ -27,7 +27,7 @@ const person = {
     {
       name: 'Carol',
       surname: 'Carolson',
-      age: 28,
+      age: 29,
     },
   ],
 };
