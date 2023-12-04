@@ -1,2 +1,2 @@
 // browser based modules REQUIRE extension .js
-import _ from './modules/searchForm';
+import _ from './modules/searchForm.js';
