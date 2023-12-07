@@ -1,9 +1,10 @@
-//grab from DOM
+// grab from dom
 const notificationBar = document.querySelector('.notification-bar');
+
 // addMessage
 export const addMessage = (messageElement) => {
-  // clear Messages
   clearMessages();
+
   notificationBar.append(messageElement);
 };
 

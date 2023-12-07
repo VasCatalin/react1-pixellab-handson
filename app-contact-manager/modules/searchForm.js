@@ -3,7 +3,7 @@ import { findContact } from './query.js';
 import stage from './stage.js';
 import renderMessage from './message.js';
 import { pluralize } from './utils.js';
-import { render } from './contact.js';
+import { render as renderContact } from './contact.js';
 
 const searchForm = document.querySelector('.search-form');
 
@@ -17,7 +17,7 @@ searchForm.addEventListener('submit', (event) => {
   const contactsCount = contacts.length;
 
   if (contactsCount <= 0) {
-    addMessage(renderMessage('No contacts found!', 'warning'));
+    addMessage(renderMessage('No contacts found', 'warning'));
   } else {
     const petsCount = contacts.reduce((petsCount, contact) => {
       const { pets = [] } = contact;
@@ -33,7 +33,7 @@ searchForm.addEventListener('submit', (event) => {
           many: 'contacts',
         })} with ${
           petsCount <= 0
-            ? 'no pet'
+            ? 'no pets'
             : pluralize(petsCount, {
                 one: 'pet',
                 many: 'pets',
@@ -46,7 +46,7 @@ searchForm.addEventListener('submit', (event) => {
 
   const fragment = new DocumentFragment();
   contacts.forEach((contact) => {
-    fragment.append(contact);
+    fragment.append(renderContact(contact));
   });
 
   stage.innerHTML = '';
